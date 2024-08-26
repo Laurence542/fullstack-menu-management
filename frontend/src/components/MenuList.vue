@@ -15,7 +15,7 @@
            <li>
               <a href="#">
                 <img src="/images/folder_24dp_FILL1_wght400_GRAD0_opsz24 1.png" alt="Folder Icon" class="icon" />
-                <span class="link-text">Systems</span>
+                <span class="white-text">Systems</span>
               </a>
             </li>
             <li>
@@ -33,7 +33,7 @@
            <li class="special-item">
               <a href="#">
                 <img src="/images/submenu (1).png" alt="Folder Icon" class="icon" />
-                <span class="link-text">Menu</span>
+                <span class="menus-text">Menus</span>
               </a>
             </li>
             <li>
@@ -72,14 +72,19 @@
     <div class="main-content">
       <!-- Menu List -->
       <div class="menu-list">
-        <div class="header">
-          <h2>Menus</h2>
+       <div class="header">
+          <img src="/images/Icon.png" alt="Folder Icon" class="icon" />
+          <h2><span class="slash-text">/</span>  Menus</h2>
           <div class="buttons">
             <button @click="expandAll">Expand All</button>
             <button @click="collapseAll">Collapse All</button>
           </div>
         </div>
+
+        
+
         <ul class="menu-tree">
+        
           <li>
             <span @click="toggleMenu">System Management</span>
             <ul v-show="isMenuVisible">
@@ -152,6 +157,7 @@ export default {
 </script>
 
 <style scoped>
+
 .menu-management {
   display: flex;
   height: 100vh;
@@ -240,12 +246,26 @@ export default {
   border-radius: 15px;
 }
 
-.sidebar ul li.special-item a {
+.sidebar ul li .special-item a {
   background-color: #8DCE33; /* Set your desired background color */
   border-radius: 15px;
   color: #101828;
 }
 
+
+.sidebar ul li .link-text{
+  color: #667085;
+}
+
+.sidebar ul li .white-text{
+  color: #FFFFFF;
+}
+
+.sidebar ul li .menus-text{
+  color: #101828;
+  font-size: 14px;
+  bold: 700px;
+}
 
 .sidebar ul li ul {
   padding-left: 5px;
@@ -280,9 +300,19 @@ export default {
   margin-bottom: 20px;
 }
 
+.header .icon {
+  margin-right: -350px; /* Add 5px space between the icon and the h2 */
+}
+
 .header h2 {
   font-size: 18px;
-  color: #333;
+  color: #101828;
+  margin: 0; /* Remove default margin to ensure proper alignment */
+}
+
+.header h2 .slash-text{
+  color: #D0D5DD;
+  
 }
 
 .header .buttons {
