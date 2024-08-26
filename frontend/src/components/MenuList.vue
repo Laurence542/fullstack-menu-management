@@ -74,19 +74,18 @@
       <div class="menu-list">
        <div class="header">
           <img src="/images/Icon.png" alt="Folder Icon" class="icon" />
-          <h2><span class="slash-text">/</span>  Menus</h2>
+          <h2><span class="slash-text">/</span> Menus</h2>
           <div class="buttons">
+            
+          </div>
+        </div>
+        <ul class="menu-tree">
+          <li>
+            <span @click="toggleMenu">System Management</span>
+             <div class="buttons">
             <button @click="expandAll">Expand All</button>
             <button @click="collapseAll">Collapse All</button>
           </div>
-        </div>
-
-        
-
-        <ul class="menu-tree">
-        
-          <li>
-            <span @click="toggleMenu">System Management</span>
             <ul v-show="isMenuVisible">
               <li>Systems</li>
               <li>Properties</li>
@@ -301,12 +300,12 @@ export default {
 }
 
 .header .icon {
-  margin-right: -350px; /* Add 5px space between the icon and the h2 */
+  margin-right: -540px; /* Add 5px space between the icon and the h2 */
 }
 
 .header h2 {
   font-size: 18px;
-  color: #101828;
+  color: #333;
   margin: 0; /* Remove default margin to ensure proper alignment */
 }
 
