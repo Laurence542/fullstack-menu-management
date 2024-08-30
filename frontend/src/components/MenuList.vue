@@ -33,7 +33,7 @@
            <li class="special-item">
               <a href="#">
                 <img src="/images/submenu (1).png" alt="Folder Icon" class="icon" />
-                <span class="menus-text">Menus</span>
+                <span class="menus-text"><b>Menus</b></span>
               </a>
             </li>
             <li>
@@ -72,24 +72,43 @@
     <div class="main-content">
       <!-- Menu List -->
       <div class="menu-list">
-       <div class="header">
+        <div class="header">
           <img src="/images/Icon.png" alt="Folder Icon" class="icon" />
-          <h2><span class="slash-text">/</span> Menus</h2>
+          <h3><span class="slash-text">/ </span> Menus</h3>
           <div class="buttons">
             
           </div>
         </div>
+
+        <div class="header">
+          <img src="/images/icon-title.png" alt="Folder Icon" class="headericon" />
+          <h2><span class="slash-text"></span><b>Menus</b></h2>
+          <div class="buttons">
+            
+          </div>
+        </div>
+        <p>Menu</p>
+
+<div class="input-container">
+        <div class="input-wrapper">
+            <input type="text" id="system-info" placeholder="System management" disabled>
+            <span class="dropdown-icon"></span>
+        </div>
+    </div>
+        
         <ul class="menu-tree">
           <li>
-            <span @click="toggleMenu">System Management</span>
-             <div class="buttons">
-            <button @click="expandAll">Expand All</button>
-            <button @click="collapseAll">Collapse All</button>
-          </div>
+          <div class="buttons">
+          <button @click="expandAll" class="expand-button">Expand All</button>
+          <button @click="collapseAll" class="collapse-button"><b>Collapse All</b></button>
+        </div>
+
             <ul v-show="isMenuVisible">
+
               <li>Systems</li>
               <li>Properties</li>
               <li>Menus</li>
+          
             </ul>
           </li>
           <!-- Add more menus here as needed -->
@@ -98,7 +117,6 @@
 
       <!-- Menu Details -->
       <div class="menu-details">
-        <h3>Menu Details</h3>
         <form @submit.prevent="saveDetails">
           <div class="form-group">
             <label>Menu ID</label>
@@ -169,7 +187,7 @@ export default {
   background-color: #101828;
   color: #fff;
   padding: 5px;
-  width: 250px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -280,7 +298,7 @@ export default {
   flex: 1;
   display: flex;
   padding: 20px;
-  background-color: #f4f5f7;
+  background-color: #FFFFFF;
   justify-content: space-between;
   gap: 20px; /* Add space between sections */
   flex-direction: row;
@@ -290,6 +308,7 @@ export default {
 .menu-list {
   flex: 2;
   max-width: 100%;
+  padding-left: 20px;
 }
 
 .header {
@@ -300,35 +319,59 @@ export default {
 }
 
 .header .icon {
-  margin-right: -540px; /* Add 5px space between the icon and the h2 */
+  margin-right: -470px; /* Add 5px space between the icon and the h2 */
+}
+
+.header .headericon {
+  margin-right: -360px; /* Add 5px space between the icon and the h2 */
 }
 
 .header h2 {
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: 1000;
   color: #333;
   margin: 0; /* Remove default margin to ensure proper alignment */
 }
+
+.header h3 {
+  font-size: 12px;
+  color: #333;
+  margin: 0; /* Remove default margin to ensure proper alignment */
+}
+
 
 .header h2 .slash-text{
   color: #D0D5DD;
   
 }
 
-.header .buttons {
+.menu-tree .buttons {
   display: flex;
   gap: 10px;
 }
 
-.header button {
-  background-color: #2d73f5;
+.menu-tree .buttons .expand-button{
+  background-color: #1D2939;
   color: #fff;
-  padding: 5px 10px;
+  padding: 9px 20px;
   border: none;
+  border-radius: 16px;
   cursor: pointer;
   font-size: 14px;
 }
 
-.header button:hover {
+.menu-tree .buttons .collapse-button{
+  background-color: #FFFFFF;
+  color: #475467;
+  padding: 9px 20px;
+  border: 2px solid #D0D5DD;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+
+.menu-tree button:hover {
   background-color: #1b56c8;
 }
 
@@ -348,17 +391,17 @@ export default {
 }
 
 .menu-tree ul {
-  padding-left: 20px;
+  padding: 20px 30px;
+
 }
 
 /* Menu Details styles */
 .menu-details {
   flex: 1;
-  max-width: 400px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  padding-top: 220px;
+  padding-right: 200px;
+
 }
 
 .menu-details h3 {
@@ -374,29 +417,71 @@ export default {
 .form-group label {
   display: block;
   margin-bottom: 5px;
-  color: #333;
+  color: #475467;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 14px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 0px solid #ccc;
+  border-radius: 16px;
+  background-color: #EAECF0;
 }
 
 button[type="submit"] {
-  background-color: #2d73f5;
+  background-color: #253BFF;
   color: #fff;
-  padding: 10px 20px;
+  padding: 15px 120px;
   border: none;
+  border-radius: 20px; 
   cursor: pointer;
   font-size: 14px;
 }
 
-button[type="submit"]:hover {
-  background-color: #1b56c8;
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 320px;
 }
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* Add extra padding on the right for the dropdown icon */
+    border: 0px solid #F9FAFB;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #F9FAFB;
+    color: black; /* Placeholder color */
+}
+
+input[type="text"]:disabled {
+    background-color: #e9ecef; /* Lighter background for disabled state */
+    border-color: #ced4da; /* Change border color to indicate disabled state */
+    color: #475467; /* Text color for disabled input */
+}
+
+.dropdown-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #6c757d; /* Arrow color */
+    pointer-events: none; /* Prevent the icon from interfering with the input */
+}
+
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -450,6 +535,115 @@ button[type="submit"]:hover {
   button[type="submit"] {
     font-size: 12px;
     padding: 8px 16px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-list {
+    padding: 15px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header .icon, .header .headericon {
+    max-width: 25px; /* Smaller icons on small screens */
+  }
+
+  .header h2 {
+    font-size: 1rem; /* Smaller heading size */
+  }
+
+  .header h3 {
+    font-size: 0.875rem; /* Smaller subheading size */
+  }
+
+  .menu-list p {
+    font-size: 0.875rem; /* Smaller paragraph text */
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-list {
+    padding: 10px;
+  }
+
+  .header {
+    margin-bottom: 10px;
+  }
+
+  .header .icon, .header .headericon {
+    max-width: 20px; /* Even smaller icons on extra small screens */
+  }
+
+  .header h2 {
+    font-size: 0.875rem; /* Further reduced heading size */
+  }
+
+  .header h3 {
+    font-size: 0.75rem; /* Further reduced subheading size */
+  }
+
+  .menu-list p {
+    font-size: 0.75rem; /* Further reduced paragraph text */
+  }
+}
+@media (max-width: 768px) {
+  .menu-management {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+
+  .menu-list,
+  .menu-details {
+    max-width: 100%;
+    flex: none;
+  }
+
+  .menu-list,
+  .menu-details {
+    padding: 10px;
+  }
+
+  .input-container input[type="text"] {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .input-container .dropdown-icon {
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 18px;
+  }
+
+  .menu-tree .buttons .expand-button,
+  .menu-tree .buttons .collapse-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .form-group input {
+    padding: 8px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
   }
 }
 </style>
