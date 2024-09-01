@@ -32,7 +32,7 @@ export default createStore({
   },
   actions: {
     fetchMenus({ commit }) {
-      return axios.get('http://localhost:8000/api/menus/')
+      return axios.get('https://fullstack-menu-management.onrender.com/api/menus/')
         .then(response => {
           commit('SET_MENUS', response.data);
         })
@@ -41,7 +41,7 @@ export default createStore({
         });
     },
     addMenu({ commit }, menuData) {
-      return axios.post('http://localhost:8000/api/menus/', menuData)
+      return axios.post('https://fullstack-menu-management.onrender.com/api/menus/', menuData)
         .then(response => {
           commit('ADD_MENU', response.data);
         })
@@ -50,7 +50,7 @@ export default createStore({
         });
     },
     fetchMenuItems({ commit }) {
-      return axios.get('http://localhost:8000/api/menu-items/')
+      return axios.get('https://fullstack-menu-management.onrender.com/api/menu-items/')
         .then(response => {
           commit('SET_MENU_ITEMS', response.data);
         })
@@ -59,7 +59,7 @@ export default createStore({
         });
     },
     addMenuItem({ commit }, menuItemData) {
-      return axios.post('http://localhost:8000/api/menu-items/', menuItemData)
+      return axios.post('https://fullstack-menu-management.onrender.com/api/menu-items/', menuItemData)
         .then(response => {
           commit('ADD_MENU_ITEM', response.data);
         })
@@ -68,7 +68,7 @@ export default createStore({
         });
     },
     updateMenuItem({ commit }, { id, data }) {
-      return axios.put(`http://localhost:8000/api/menu-items/${id}/`, data)
+      return axios.put(`https://fullstack-menu-management.onrender.com/api/menu-items/${id}/`, data)
         .then(response => {
           commit('UPDATE_MENU_ITEM', response.data);
         })
@@ -77,7 +77,7 @@ export default createStore({
         });
     },
     deleteMenuItem({ commit }, menuItemId) {
-      return axios.delete(`http://localhost:8000/api/menu-items/${menuItemId}/`)
+      return axios.delete(`https://fullstack-menu-management.onrender.com/api/menu-items/${menuItemId}/`)
         .then(() => {
           commit('REMOVE_MENU_ITEM', menuItemId);
         })
