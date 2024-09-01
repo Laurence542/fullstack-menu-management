@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9(-1&q7u)jqa+xgf@8(&-@o+95r%kb2bva*6-69_1&_i)&90-r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fullstack-menu-management.onrender.com']
 
 
 # Application definition
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['*'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
