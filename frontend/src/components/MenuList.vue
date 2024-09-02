@@ -132,7 +132,7 @@
         </ul>
         
 
-        <div v-if="editMenuItem">
+     <div v-if="editMenuItem">
       <h2>Edit Menu Item</h2>
       <form @submit.prevent="updateItem">
         <label for="edit-menu">Menu:</label>
@@ -141,11 +141,11 @@
             {{ menu.name }}
           </option>
         </select>
-        <br />
+        <br><br>
 
         <label for="edit-name">Item Name:</label>
         <input v-model="editMenuItem.name" type="text" required />
-        <br />
+        <br><br>
 
         <label for="edit-parent">Parent Item (optional):</label>
         <select v-model="editMenuItem.parent">
@@ -154,7 +154,7 @@
             {{ item.name }}
           </option>
         </select>
-        <br />
+        <br><br>
 
         <button type="submit">Update Menu Item</button>
       </form>
@@ -174,11 +174,12 @@
 
           <div class="form-group">
             <label>Depth</label>
-            <select v-model="newMenuItem.menu" required>
-        <option v-for="menu in menus" :key="menu.id" :value="menu.id">
-          {{ menu.name }}
-        </option>
-      </select>
+            <select v-model="newMenuItem.parent">
+            <option value="">None</option>
+            <option v-for="item in menuItems" :key="item.id" :value="item.id">
+              {{ item.name }}
+            </option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -187,13 +188,16 @@
           </div>
 
           <div class="form-group">
-            <label>Name</label>
-            <select v-model="newMenuItem.parent">
-            <option value="">None</option>
-            <option v-for="item in menuItems" :key="item.id" :value="item.id">
-              {{ item.name }}
+            <label>Menu</label>
+
+
+      <select v-model="newMenuItem.menu" required>
+            <option v-for="menu in menus" :key="menu.id" :value="menu.id">
+              {{ menu.name }}
             </option>
-            </select>
+          </select>
+
+    
           </div>
 
           <button type="submit">Save</button>
@@ -539,7 +543,9 @@ export default {
   padding: 20px 30px;
 
 }
-
+.menu-tree editMenuItem{
+  width: 200px
+}
 /* Menu Details styles */
 .menu-details {
   flex: 1;
